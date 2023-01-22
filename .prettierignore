@@ -1,0 +1,10 @@
+# project
+src/**/assets/**
+# public/**
+
+# output
+dist/**
+
+# usual suspects
+node_modules/
+pnpm-lock.yaml/
