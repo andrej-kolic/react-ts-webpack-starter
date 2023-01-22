@@ -15,6 +15,7 @@ declare module '*.css' {
   export default content;
 }
 
+// TODO: fix relative path
 // NOTE: asset JavaScript files have to be referenced with an additional specifier end such as '?'
 // declare module './assets/*' {
 //   const reference: string;

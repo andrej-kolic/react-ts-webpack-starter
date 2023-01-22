@@ -18,8 +18,6 @@ module.exports = {
     es6: true,
     browser: true,
     node: true,
-    // "jest": true
-    // "jest/globals": true
   },
   plugins: ['@typescript-eslint', 'prettier'],
   extends: [
@@ -55,6 +53,19 @@ module.exports = {
       parser: '@typescript-eslint/parser',
       rules: {
         '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+
+    // unit+integration tests
+    {
+      files: ['**/*.spec.tsx', '**/*.spec.ts'],
+      env: {
+        jest: true,
+      },
+      plugins: ['jest' /*, 'jest-dom', 'testing-library'*/],
+      extends: ['plugin:jest/recommended'],
+      rules: {
+        'no-magic-numbers': 2,
       },
     },
   ],
