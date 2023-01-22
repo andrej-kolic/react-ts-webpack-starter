@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+        "outDir": "build",
+        "rootDir": "src",
+
+        "target": "es5",
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "lib": [
+            "es6"
+        ],
+        // "skipLibCheck": true,
+        "isolatedModules": true,
+
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "allowJs": true,
+        "strict": true,
+        // "types": [
+        //     "node"
+        //     "jest"
+        // ],
+        "sourceMap": true,
+
+        "declaration": true,
+        "declarationDir": "types",
+        "declarationMap": true,
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "src/**/*.spec.ts",
+        "node_modules"
+    ]
+}
