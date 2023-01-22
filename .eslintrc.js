@@ -1,3 +1,8 @@
+const typescriptEslintRecommendedRequiringTypeChecking =
+  require('@typescript-eslint/eslint-plugin').configs[
+    'recommended-requiring-type-checking'
+  ];
+
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
@@ -8,7 +13,6 @@ module.exports = {
       jsx: true,
     },
     tsconfigRootDir: __dirname,
-    project: './tsconfig.json',
   },
   env: {
     es6: true,
@@ -22,8 +26,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    // "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    'prettier',
+    'prettier', // should be last
   ],
   rules: {
     // 0: off, 1: warning, 2: error
@@ -32,63 +35,27 @@ module.exports = {
   },
 
   overrides: [
+    // TypeScript
+    {
+      files: ['*.ts', '*.tsx'], // Your TypeScript files extension
+
+      extends: [
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+      ],
+
+      parserOptions: {
+        project: './tsconfig.json', // Specify it only for TypeScript files
+      },
+    },
+
     // JavaScript
     {
       // NOTE: overrides the '.eslintignore' definition so errors/warnings will be shown for those
       files: ['*.js'],
       parser: '@typescript-eslint/parser',
-      parserOptions: {
-        project: null,
-      },
       rules: {
         '@typescript-eslint/no-var-requires': 'off',
       },
-      // exclude all the rules from 'plugin:@typescript-eslint/recommended-requiring-type-checking'
-      // rules: Object.keys(
-      //   typescriptEslintRecommendedRequiringTypeChecking.rules,
-      // ).reduce(
-      //   (rules, key) => {
-      //     rules[key] = 'off';
-      //     return rules;
-      //   },
-      //   {
-      //     '@typescript-eslint/no-var-requires': 'off',
-      //     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md#configuring-in-a-mixed-jsts-codebase
-      //     '@typescript-eslint/explicit-member-accessibility': 'off',
-      //     'import/no-anonymous-default-export': 'off',
-      //     'import/no-default-export': 'off',
-      //   },
-      // ),
     },
   ],
-
-  /*
-  _overrides: [
-    // JavaScript
-    {
-      // NOTE: overrides the '.eslintignore' definition so errors/warnings will be shown for those
-      files: ['*.js'],
-      parser: '@typescript-eslint/parser',
-      parserOptions: {
-        project: null,
-      },
-      // exclude all the rules from 'plugin:@typescript-eslint/recommended-requiring-type-checking'
-      rules: Object.keys(
-        typescriptEslintRecommendedRequiringTypeChecking.rules,
-      ).reduce(
-        (rules, key) => {
-          rules[key] = 'off';
-          return rules;
-        },
-        {
-          '@typescript-eslint/no-var-requires': 'off',
-          // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md#configuring-in-a-mixed-jsts-codebase
-          '@typescript-eslint/explicit-member-accessibility': 'off',
-          'import/no-anonymous-default-export': 'off',
-          'import/no-default-export': 'off',
-        },
-      ),
-    },
-  ],
-  */
 };

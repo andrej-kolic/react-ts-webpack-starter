@@ -1,3 +1,14 @@
 node_modules
 dist
-types
+
+# project
+public/**
+src/**/assets/**
+
+@types-external
+
+# cache
+.eslintcache
+.babelcache
+
+pnpm-lock.yaml

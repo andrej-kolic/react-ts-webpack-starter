@@ -1,2 +1,21 @@
-node_modules/
+# ide
 .vscode/
+
+# dependencies
+node_modules/
+
+# environment
+.env
+
+# builds
+dist*/
+
+# tests
+coverage*/
+
+# cache
+.eslintcache
+.babelcache
+
+# debug
+*.log

@@ -6,9 +6,9 @@
   "scripts": {
     "prepare": "husky install",
     "build": "webpack",
-    "lint": "eslint . --ext .ts",
-    "lint-and-fix": "eslint . --ext .ts --fix",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "lint": "eslint . --cache",
+    "lint-and-fix": "pnpm lint --fix --quiet",
+    "format": "prettier --config .prettierrc . --write && pnpm lint-and-fix",
     "test": "jest",
     "start": "pnpm run build && node build/index.js",
     "start:dev": "npx nodemon"

@@ -7,6 +7,8 @@
       "~/*": ["./src/*"]
     },
 
+    "typeRoots": ["./node_modules/@types", "./@types", "./@types-external"],
+
     "target": "es5",
     "module": "commonjs",
     "esModuleInterop": true,
@@ -29,7 +31,7 @@
     "declarationDir": "dist/types",
     "declarationMap": true
   },
-  "include": ["src/**/*"],
+  "include": ["@types/*", "@types-external/*", "src/**/*"],
   "exclude": [
     // "src/**/*.spec.ts",
     "node_modules",
