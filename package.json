@@ -2,16 +2,15 @@
   "name": "react-ts-webpack-starter",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "prepare": "husky install",
-    "build": "webpack",
+    "build": "webpack --config ./webpack/webpack.config.js",
     "lint": "eslint . --cache",
     "lint-and-fix": "pnpm lint --fix --quiet",
     "format": "prettier --config .prettierrc . --write && pnpm lint-and-fix",
     "test": "jest",
     "test:type": "tsc --noEmit --pretty",
-    "start": "webpack serve --config ./webpack.config.js",
+    "start": "webpack serve --config ./webpack/webpack.config.js",
     "clean": "pnpm clean:cache && pnpm clean:dist",
     "clean:cache": "rimraf .eslintcache && rimraf .babelcache",
     "clean:dist": "rimraf ./dist"

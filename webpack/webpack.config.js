@@ -1,8 +1,9 @@
-const path = require('path');
+// const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { sourceDir, targetDir } = require('./paths');
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: `${sourceDir}/index.ts`,
   module: {
     rules: [
       {
@@ -17,7 +18,7 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: targetDir,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -26,11 +27,6 @@ module.exports = {
   ],
   devtool: 'eval-cheap-module-source-map',
   devServer: {
-    // contentBase: targetAppDirectory,
-    // host: 'localhost', // required to ensure a secure origin for Auth0 usage: https://github.com/auth0/auth0-spa-js/blob/master/FAQ.md#why-do-i-get-auth0-spa-js-must-run-on-a-secure-origin
-    // port: Number.parseInt(process.env.DEVELOPMENT_SERVER_PORT || '10000', 10),
-    // historyApiFallback: true,
-    // compress: true,
     hot: true,
     open: true,
     client: {
