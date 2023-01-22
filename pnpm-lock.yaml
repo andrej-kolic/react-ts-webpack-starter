@@ -165,7 +165,7 @@ packages:
     dev: true
 
   /@babel/helper-module-transforms/7.20.11:
-    resolution:
+     resolution:
       {
         integrity: sha512-uRy78kN4psmji1s2QtbtcCSaj/LILFDp0f/ymhpQH5QY3nljUZCaNWz9X1dEj/8MBdBEFECs7yRhKn8i7NjZgg==,
       }
