@@ -1,6 +1,6 @@
 // const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { sourceDir, targetDir } = require('./paths');
+const { sourceDir, targetDir, templateDir } = require('./paths');
 
 module.exports = {
   entry: `${sourceDir}/index.ts`,
@@ -23,14 +23,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'ReactTs starter',
+      template: `${templateDir}/index.html`,
     }),
   ],
-  devtool: 'eval-cheap-module-source-map',
-  devServer: {
-    hot: true,
-    open: true,
-    client: {
-      overlay: false,
-    },
-  },
 };

@@ -22,6 +22,7 @@ specifiers:
   webpack: ^5.75.0
   webpack-cli: ^5.0.1
   webpack-dev-server: ^4.11.1
+  webpack-merge: ^5.8.0
 
 devDependencies:
   '@types/jest': 29.2.6
@@ -45,6 +46,7 @@ devDependencies:
   webpack: 5.75.0_webpack-cli@5.0.1
   webpack-cli: 5.0.1_uaydpeuxkjjcxdbyfgk36cjdxi
   webpack-dev-server: 4.11.1_rjsyjcrmk25kqsjzwkvj3a2evq
+  webpack-merge: 5.8.0
 
 packages:
 
