@@ -1,37 +1,42 @@
 {
-    "compilerOptions": {
-        "outDir": "build",
-        "rootDir": "src",
-
-        "target": "es5",
-        "module": "commonjs",
-        "esModuleInterop": true,
-        "lib": [
-            "es6"
-        ],
-        // "skipLibCheck": true,
-        "isolatedModules": true,
-
-        "noImplicitAny": true,
-        "removeComments": true,
-        "preserveConstEnums": true,
-        "allowJs": true,
-        "strict": true,
-        // "types": [
-        //     "node"
-        //     "jest"
-        // ],
-        "sourceMap": true,
-
-        "declaration": true,
-        "declarationDir": "types",
-        "declarationMap": true,
+  "compilerOptions": {
+    // "outDir": "build",
+    // "rootDir": "src",
+    "baseUrl": "./",
+    "paths": {
+      "~/*": ["./src/*"]
     },
-    "include": [
-        "src/**/*"
-    ],
-    "exclude": [
-        "src/**/*.spec.ts",
-        "node_modules"
-    ]
+
+    "target": "es5",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "lib": ["es6"],
+    // "skipLibCheck": true,
+    "isolatedModules": true,
+
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "allowJs": true,
+    "strict": true,
+    // "types": [
+    //     "node"
+    //     "jest"
+    // ],
+    "sourceMap": true,
+
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "declarationMap": true
+  },
+  "include": ["src/**/*"],
+  "exclude": [
+    // "src/**/*.spec.ts",
+    "node_modules",
+    "dist",
+    "src/**/*/assets"
+  ]
+
+  // "include": ["@types/*", "@types-external/*", "src/**/*", "test/**/*"],
+  // "exclude": ["node_modules", "dist-module", "dist-app", "src/**/*/assets"]
 }
