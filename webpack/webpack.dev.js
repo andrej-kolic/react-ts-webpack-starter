@@ -1,5 +1,5 @@
 // const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { merge } = require('webpack-merge');
 
 const common = require('./webpack.common.js');
@@ -10,7 +10,7 @@ module.exports = merge(common, {
   devtool: 'eval-cheap-module-source-map',
   devServer: {
     hot: true,
-    open: true,
+    open: false,
     client: {
       overlay: false,
     },

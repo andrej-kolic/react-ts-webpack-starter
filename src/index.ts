@@ -2,7 +2,8 @@ function sayHi(name: string): string {
   return `Hi, ${name}!`;
 }
 
-// const s: string = 2;
+console.log(2); // TODO: remove
+
 const externalLib: typeof ExternalLibExample = { version: 1 };
 console.log(externalLib);
 

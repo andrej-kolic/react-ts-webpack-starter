@@ -36,13 +36,14 @@ module.exports = {
     // TypeScript
     {
       files: ['*.ts', '*.tsx'], // Your TypeScript files extension
-
       extends: [
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
       ],
-
       parserOptions: {
         project: './tsconfig.json', // Specify it only for TypeScript files
+      },
+      rules: {
+        'no-magic-numbers': 1,
       },
     },
 
@@ -65,7 +66,7 @@ module.exports = {
       plugins: ['jest' /*, 'jest-dom', 'testing-library'*/],
       extends: ['plugin:jest/recommended'],
       rules: {
-        'no-magic-numbers': 2,
+        'no-magic-numbers': 'off',
       },
     },
   ],
