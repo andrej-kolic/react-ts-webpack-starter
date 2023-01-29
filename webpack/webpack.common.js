@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { sourceDir, targetDir, templateDir } = require('./paths');
 
 module.exports = {
-  entry: `${sourceDir}/index.ts`,
+  entry: `${sourceDir}/index.tsx`,
   module: {
     rules: [
       {

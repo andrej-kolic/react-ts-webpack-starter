@@ -6,15 +6,17 @@
     "paths": {
       "~/*": ["./src/*"]
     },
-
     "typeRoots": ["./node_modules/@types", "./@types", "./@types-external"],
 
     "target": "es5",
-    "module": "commonjs",
+    "module": "ES6",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node16",
     "esModuleInterop": true,
-    "lib": ["es6"],
+    "lib": ["es6", "DOM"],
     // "skipLibCheck": true,
     "isolatedModules": true,
+    "jsx": "react-jsx",
 
     "noImplicitAny": true,
     "removeComments": true,
