@@ -1,4 +1,5 @@
 import { NavBar } from '~/components/NavBar';
+
 export type AppProps = {
   version: string;
 };
