@@ -1,5 +1,4 @@
-import type { FC } from 'react';
-
+import { NavBar } from '~/components/NavBar';
 export type AppProps = {
   version: string;
 };
@@ -12,15 +11,11 @@ export type AppProps = {
 //   return <button>test button</button>;
 // };
 
-export const Nav = () => {
-  return <nav>Nav bar</nav>;
-};
-
 export const App = (props: AppProps) => {
   return (
     <>
       <h1>React typescript starter app</h1>
-      <Nav />
+      <NavBar />
       <button>test button</button>
     </>
   );
