@@ -32,6 +32,16 @@ module.exports = {
     'prettier/prettier': 2,
   },
 
+  // not needed for now
+  // settings: {
+  //   'import/resolver': {
+  //     alias: {
+  //       map: [['~', './src/']],
+  //       extensions: ['.ts', '.js', '.tsx'],
+  //     },
+  //   },
+  // },
+
   overrides: [
     // TypeScript
     {

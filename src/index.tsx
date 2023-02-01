@@ -1,4 +1,4 @@
-import { App } from './App';
+import { App } from '~/App';
 import { createRoot } from 'react-dom/client';
 import type { ReactNode } from 'react';
 
