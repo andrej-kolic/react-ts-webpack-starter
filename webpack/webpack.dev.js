@@ -9,6 +9,7 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'eval-cheap-module-source-map',
   devServer: {
+    historyApiFallback: true, // proxy requests through a specified index page (enable reload without 404)
     hot: true,
     open: false,
     client: {

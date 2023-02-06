@@ -3,3 +3,18 @@
   color: white;
   padding: 10px;
 }
+
+.NavBar__container ul {
+  padding: 0;
+  margin: 0;
+}
+
+.NavBar__container li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 10px;
+}
+
+.NavBar__container a {
+  color: white;
+}
