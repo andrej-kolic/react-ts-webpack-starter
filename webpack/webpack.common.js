@@ -12,8 +12,29 @@ module.exports = {
     },
   },
   output: {
-    filename: 'bundle.js',
     path: targetDir,
+    filename: 'js/[name].[contenthash].js',
+    // chunkFilename: 'js/[id].[chunkhash].chunk.js',
+    assetModuleFilename: 'assets/[hash][ext][query]',
+    publicPath: '/',
+    clean: true,
+    asyncChunks: true,
+  },
+  // TODO: move to webpack.prod.js ?
+  optimization: {
+    moduleIds: 'deterministic',
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+          // reuseExistingChunk: true,
+          // priority: -10,
+        },
+      },
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({

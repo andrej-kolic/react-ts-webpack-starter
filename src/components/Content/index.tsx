@@ -41,6 +41,8 @@ const routingType: string = 'browser';
 //
 //
 
+// TODO: add async imports
+
 const routes: RouteObject[] = [
   {
     path: '/',
