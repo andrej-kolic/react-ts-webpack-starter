@@ -3,17 +3,23 @@
 ## Stack
 
 - pnpm
-- Typescript
-- React
 - Webpack
+- chunks
 - Jest
 - Husky
 - ESLint
 - Prettier
+- Typescript
+- React
+- router
+- testing-library
 - ...
 
 ## TODO:
 
-- router
-- chunks
+- more testing
 - tailwind
+- intl
+- react-hook-form
+- react-query
+- eslint rules

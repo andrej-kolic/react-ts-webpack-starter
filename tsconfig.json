@@ -33,13 +33,8 @@
     "declarationDir": "dist/types",
     "declarationMap": true
   },
-  "include": ["@types/*", "@types-external/*", "src/**/*"],
-  "exclude": [
-    // "src/**/*.spec.ts",
-    "node_modules",
-    "dist",
-    "src/**/*/assets"
-  ]
+  "include": ["@types/*", "@types-external/*", "src/**/*", "test/**/*"],
+  "exclude": ["node_modules", "dist", "src/**/*/assets"]
 
   // "include": ["@types/*", "@types-external/*", "src/**/*", "test/**/*"],
   // "exclude": ["node_modules", "dist-module", "dist-app", "src/**/*/assets"]

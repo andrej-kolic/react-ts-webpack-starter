@@ -1,7 +1,7 @@
 // const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { sourceDir, targetDir, templateDir } = require('./paths');
+const { sourceDir, targetDir, templateDir } = require('../helpers/paths');
 
 module.exports = {
   entry: `${sourceDir}/index.tsx`,

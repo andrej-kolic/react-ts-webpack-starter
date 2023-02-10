@@ -73,8 +73,12 @@ module.exports = {
       env: {
         jest: true,
       },
-      plugins: ['jest' /*, 'jest-dom', 'testing-library'*/],
-      extends: ['plugin:jest/recommended'],
+      plugins: ['jest', 'jest-dom', 'testing-library'],
+      extends: [
+        'plugin:jest/recommended',
+        'plugin:jest-dom/recommended',
+        'plugin:testing-library/react',
+      ],
       rules: {
         'no-magic-numbers': 'off',
       },
