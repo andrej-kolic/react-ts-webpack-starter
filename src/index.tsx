@@ -17,6 +17,5 @@ export { sayHi };
 
 const rootNode = document.getElementById('app');
 if (rootNode) {
-  // createRoot(rootNode).render(App({ version: '0.0.1' }));
   createRoot(rootNode).render(<App version="0.0.1" />);
 }

@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
-import { NavBar } from '~/components/NavBar';
+import { NavBar } from '~/components/App/NavBar';
 
-export function Root() {
+export function Layout() {
   return (
     <div>
       <h1>React typescript starter app</h1>

@@ -19,8 +19,11 @@
 
 - more testing
 - e2e tests
+- asset management
+- file download (figure out prod path)
 - tailwind
 - intl
 - react-hook-form
 - react-query
+- new eslint config file
 - eslint rules

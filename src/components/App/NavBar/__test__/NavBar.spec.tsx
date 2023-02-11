@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 
 import { renderWithRouter } from '~/../test/unit+integration/custom';
 
-import { NavBar } from '../';
+import { NavBar } from '..';
 
 describe('NavBar', () => {
   it('should render links', () => {

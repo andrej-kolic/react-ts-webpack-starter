@@ -11,7 +11,7 @@ import {
 import { AboutPage } from '~/pages/about';
 import { HomePage } from '~/pages/home';
 import { ErrorPage } from '~/pages/404';
-import { Root } from '../Root/index';
+import { Layout } from '../Layout/index';
 
 // TODO: router based on environment
 // eslint-disable-next-line @typescript-eslint/no-inferrable-types
@@ -27,7 +27,7 @@ const routingType: string = 'browser';
 //   return (
 //     <Router>
 //       <Routes>
-//         <Route path="/" element={<Root />}>
+//         <Route path="/" element={<Layout />}>
 //           <Route path="home" element={<HomePage />} />
 //           <Route path="about" element={<AboutPage />} />
 //         </Route>
@@ -46,7 +46,7 @@ const routingType: string = 'browser';
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: <Root />,
+    element: <Layout />,
     errorElement: <ErrorPage />,
     children: [
       {

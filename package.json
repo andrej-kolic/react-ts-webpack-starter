@@ -13,7 +13,7 @@
     "test:type": "tsc --noEmit --pretty",
     "start": "webpack serve --config ./webpack/webpack.dev.js",
     "clean": "pnpm clean:cache && pnpm clean:dist",
-    "clean:cache": "rimraf .eslintcache && rimraf .babelcache",
+    "clean:cache": "rimraf .eslintcache",
     "clean:dist": "rimraf ./dist"
   },
   "keywords": [],

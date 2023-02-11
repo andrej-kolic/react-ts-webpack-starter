@@ -6,6 +6,7 @@ export type AppProps = {
 };
 
 export const App = (props: AppProps) => {
+  // TODO: add providers
   return (
     <React.StrictMode>
       <Content />
