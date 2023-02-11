@@ -17,6 +17,8 @@ export default {
     // './assets/*': `${rootDirectory}/test/mocks/asset.js`,
   },
   roots: [`${sourceDir}`],
+
+  // jest should with --runInBand to support globals! (https://github.com/facebook/jest/issues/5731)
   globals: {
     // fetch: global.fetch,
     Request: Request,

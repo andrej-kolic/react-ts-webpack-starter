@@ -9,7 +9,7 @@
     "lint": "eslint . --cache",
     "lint:fix": "pnpm lint --fix --quiet",
     "format": "prettier --config .prettierrc . --write && pnpm lint:fix",
-    "test": "jest",
+    "test": "jest --runInBand",
     "test:type": "tsc --noEmit --pretty",
     "start": "webpack serve --config ./webpack/webpack.dev.js",
     "clean": "pnpm clean:cache && pnpm clean:dist",
