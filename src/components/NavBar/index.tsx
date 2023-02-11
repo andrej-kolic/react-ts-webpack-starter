@@ -9,12 +9,12 @@ export const NavBar = () => {
           <Link to={`/`}>~</Link>
         </li>
         <li>
-          <Link id="navigate-home" to={`home`}>
+          <Link data-testid="navigate-home" to={`home`}>
             Home
           </Link>
         </li>
         <li>
-          <Link id="navigate-about" to={`about`}>
+          <Link data-testid="navigate-about" to={`about`}>
             About
           </Link>
         </li>

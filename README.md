@@ -18,6 +18,7 @@
 ## TODO:
 
 - more testing
+- e2e tests
 - tailwind
 - intl
 - react-hook-form
