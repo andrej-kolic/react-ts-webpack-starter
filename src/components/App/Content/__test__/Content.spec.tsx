@@ -13,11 +13,12 @@ describe('Content', () => {
     render(<Content />);
     const user = userEvent.setup();
 
-    // TODO: use test-id to detect pages?
     await user.click(screen.getByText(/home/i));
-    expect(screen.getByText(/home page/i)).toBeInTheDocument();
+    // expect(screen.getByText(/home page/i)).toBeInTheDocument();
+    expect(screen.getByTestId('page-home')).toBeInTheDocument();
 
     await user.click(screen.getByText(/about/i));
-    expect(screen.getByText(/about page/i)).toBeInTheDocument();
+    // expect(screen.getByText(/about page/i)).toBeInTheDocument();
+    expect(screen.getByTestId('page-about')).toBeInTheDocument();
   });
 });

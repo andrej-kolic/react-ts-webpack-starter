@@ -27,3 +27,4 @@
 - react-query
 - new eslint config file
 - eslint rules
+- serve prod locally
