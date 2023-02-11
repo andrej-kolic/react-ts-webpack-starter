@@ -1,18 +1,18 @@
-const typescriptEslintRecommendedRequiringTypeChecking =
-  require('@typescript-eslint/eslint-plugin').configs[
-    'recommended-requiring-type-checking'
-  ];
+// const typescriptEslintRecommendedRequiringTypeChecking =
+//   require('@typescript-eslint/eslint-plugin').configs[
+//     'recommended-requiring-type-checking'
+//   ];
 
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
     sourceType: 'module',
-    ecmaVersion: 2020,
+    ecmaVersion: 2022,
     ecmaFeatures: {
       jsx: true,
     },
-    tsconfigRootDir: __dirname,
+    // tsconfigRootDir: __dirname,
   },
   env: {
     es6: true,

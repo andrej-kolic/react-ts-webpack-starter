@@ -1,7 +1,7 @@
-const { rootDir, sourceDir } = require('./helpers/paths');
+import { rootDir, sourceDir } from './helpers/paths.js';
 
 /** @type {import('ts-jest').JestConfigWithTsJest} */
-module.exports = {
+export default {
   preset: 'ts-jest',
   transform: {
     '^.+\\.ts?$': 'ts-jest',
@@ -17,4 +17,8 @@ module.exports = {
     // './assets/*': `${rootDirectory}/test/mocks/asset.js`,
   },
   roots: [`${sourceDir}`],
+  globals: {
+    // fetch: global.fetch,
+    Request: Request,
+  },
 };

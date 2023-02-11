@@ -8,10 +8,10 @@
     },
     "typeRoots": ["./node_modules/@types", "./@types", "./@types-external"],
 
-    "target": "es5",
+    "target": "ES6",
     "module": "ES6",
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node16",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "lib": ["es6", "DOM"],
     // "skipLibCheck": true,

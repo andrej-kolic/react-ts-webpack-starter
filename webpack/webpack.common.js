@@ -1,9 +1,8 @@
-// const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { sourceDir, targetDir, templateDir } = require('../helpers/paths');
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { sourceDir, targetDir, templateDir } from '../helpers/paths.js';
 
-module.exports = {
+export default {
   entry: `${sourceDir}/index.tsx`,
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -47,6 +46,12 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.m?js$/,
+        resolve: {
+          fullySpecified: false, // disable the behavior
+        },
+      },
       // loaders
       {
         test: /\.tsx?$/,

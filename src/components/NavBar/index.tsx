@@ -3,16 +3,20 @@ import './styles.css';
 
 export const NavBar = () => {
   return (
-    <nav className="NavBar__container">
+    <nav id="nav-bar" data-testid="nav-bar" className="NavBar__container">
       <ul>
         <li>
           <Link to={`/`}>~</Link>
         </li>
         <li>
-          <Link to={`home`}>Home</Link>
+          <Link id="navigate-home" to={`home`}>
+            Home
+          </Link>
         </li>
         <li>
-          <Link to={`about`}>About</Link>
+          <Link id="navigate-about" to={`about`}>
+            About
+          </Link>
         </li>
         <li>
           <Link to={`404`}>404</Link>
