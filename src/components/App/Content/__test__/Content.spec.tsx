@@ -10,8 +10,8 @@ describe('Content', () => {
   });
 
   it('should navigate to pages', async () => {
-    render(<Content />);
     const user = userEvent.setup();
+    render(<Content />);
 
     await user.click(screen.getByText(/home/i));
     // expect(screen.getByText(/home page/i)).toBeInTheDocument();

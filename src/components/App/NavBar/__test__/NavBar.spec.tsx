@@ -18,8 +18,8 @@ describe('NavBar', () => {
   });
 
   it('should navigate to path', async () => {
-    renderWithRouter(<NavBar />);
     const user = userEvent.setup();
+    renderWithRouter(<NavBar />);
 
     await user.click(screen.getByText(/home/i));
     expect(window.location.pathname).toBe('/home');

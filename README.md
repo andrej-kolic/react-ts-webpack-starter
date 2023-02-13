@@ -17,6 +17,7 @@
 
 ## TODO:
 
+- api (fetch/axios, react-query)
 - more testing
 - e2e tests
 - asset management
