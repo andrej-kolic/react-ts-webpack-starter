@@ -1,6 +1,10 @@
-import { App } from '~/components/App';
 import { createRoot } from 'react-dom/client';
 import type { ReactNode } from 'react';
+
+import { App } from '~/components/App';
+import { getEnvironmentVariables } from '~/definitions/environment';
+
+console.log('API_URL:', getEnvironmentVariables().API_URL);
 
 function sayHi(name: string): string {
   return `Hi, ${name}!`;

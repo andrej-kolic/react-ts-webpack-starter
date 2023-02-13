@@ -55,6 +55,10 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@types/dotenv-safe": "^8.1.2",
+    "axios": "^1.3.2",
+    "dotenv-safe": "^8.2.0",
+    "dotenv-webpack": "^8.0.1",
     "identity-obj-proxy": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

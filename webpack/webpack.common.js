@@ -1,5 +1,10 @@
+import * as dotEnvSafe from 'dotenv-safe';
+dotEnvSafe.config();
+
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import Dotenv from 'dotenv-webpack';
+
 import { sourceDir, targetDir, templateDir } from '../helpers/paths.js';
 
 export default {
@@ -42,6 +47,11 @@ export default {
     }),
     new MiniCssExtractPlugin({
       filename: 'styles/[name].css',
+    }),
+    new Dotenv({
+      // use process environment variables
+      // systemvars: process.env.CI === 'true',
+      safe: true,
     }),
   ],
   module: {
