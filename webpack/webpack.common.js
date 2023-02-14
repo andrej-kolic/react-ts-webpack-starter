@@ -50,7 +50,7 @@ export default {
     }),
     new Dotenv({
       // use process environment variables
-      // systemvars: process.env.CI === 'true',
+      systemvars: process.env.CI === 'true',
       safe: true,
     }),
   ],
