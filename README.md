@@ -5,6 +5,7 @@
 - pnpm
 - Webpack
 - chunks
+- dotenv
 - Jest
 - Husky
 - ESLint
@@ -13,19 +14,18 @@
 - React
 - router
 - testing-library
-- ...
+- api (axios, react-query)
+- integration tests (msw)
+- serve dist
+- github workflows
 
 ## TODO:
 
-- api (fetch/axios, react-query)
-- more testing
-- e2e tests
+- e2e tests (playwright)
 - asset management
 - file download (figure out prod path)
 - tailwind
 - intl
 - react-hook-form
-- react-query
 - new eslint config file
 - eslint rules
-- serve prod locally
