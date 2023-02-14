@@ -1,47 +1,29 @@
+import { lazy } from 'react';
 import {
   createBrowserRouter,
   RouterProvider,
-  // MemoryRouter,
-  // BrowserRouter,
-  // Route,
-  // Routes,
   RouteObject,
   createMemoryRouter,
 } from 'react-router-dom';
-import { AboutPage } from '~/pages/about';
-import { HomePage } from '~/pages/home';
-import { ErrorPage } from '~/pages/404';
+
 import { Layout } from '../Layout/index';
+import { ErrorPage } from '~/pages/404';
+
+const AsyncHomePage = lazy(() =>
+  import('~/pages/home').then((module) => ({
+    default: module.HomePage,
+  })),
+);
+
+const AsyncAboutPage = lazy(() =>
+  import('~/pages/about').then((module) => ({
+    default: module.AboutPage,
+  })),
+);
 
 // TODO: router based on environment
 // eslint-disable-next-line @typescript-eslint/no-inferrable-types
 const routingType: string = 'browser';
-
-//
-// before react-router 6.4
-//
-
-// const Router = routingType === 'memory' ? MemoryRouter : BrowserRouter;
-
-// export function _Content() {
-//   return (
-//     <Router>
-//       <Routes>
-//         <Route path="/" element={<Layout />}>
-//           <Route path="home" element={<HomePage />} />
-//           <Route path="about" element={<AboutPage />} />
-//         </Route>
-//         <Route path="*" element={<div>404</div>} />
-//       </Routes>
-//     </Router>
-//   );
-// }
-
-//
-//
-//
-
-// TODO: add async imports
 
 const routes: RouteObject[] = [
   {
@@ -51,11 +33,11 @@ const routes: RouteObject[] = [
     children: [
       {
         path: 'home/',
-        element: <HomePage />,
+        element: <AsyncHomePage />,
       },
       {
         path: 'about/',
-        element: <AboutPage />,
+        element: <AsyncAboutPage />,
         loader: async () => {
           await Promise.resolve();
           console.log('loading about page 2');

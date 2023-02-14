@@ -43,18 +43,7 @@ describe('PostList', () => {
   });
 
   it('should render posts', async () => {
-    server.use(
-      rest.get(url, (_request, response, context) => {
-        return response.once(
-          context.status(200),
-          context.json<GetPostsResponseData>([
-            { id: 1, title: 'post 1' },
-            { id: 2, title: 'post 2' },
-            { id: 3, title: 'post 3' },
-          ]),
-        );
-      }),
-    );
+    // use default mock
 
     renderInApp(<PostList />);
     expect(
