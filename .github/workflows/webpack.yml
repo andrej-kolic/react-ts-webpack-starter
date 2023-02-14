@@ -70,6 +70,9 @@ jobs:
     name: Publish
     runs-on: ubuntu-latest
     needs: [build]
+    permissions:
+      packages: write
+      contents: read
 
     strategy:
       matrix:
@@ -86,6 +89,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
+          registry-url: https://npm.pkg.github.com/
 
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
@@ -94,4 +98,3 @@ jobs:
         run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          
