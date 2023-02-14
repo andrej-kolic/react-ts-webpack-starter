@@ -1,4 +1,4 @@
-import { default as dotEnvSafe } from 'dotenv-safe';
+import * as dotEnvSafe from 'dotenv-safe';
 dotEnvSafe.config();
 
 import { merge } from 'webpack-merge';

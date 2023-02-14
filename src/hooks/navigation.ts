@@ -15,8 +15,10 @@ export function useApiClient() {
     });
 
     axiosClient.interceptors.request.use((config) => {
-      // const accessToken = await getAccessTokenSilently(options);
       console.log('* axios interceptor:', config);
+
+      // TODO: authorization
+      // const accessToken = await getAccessTokenSilently(options);
       config.headers['Authorization'] = 'Bearer 123';
 
       return config;

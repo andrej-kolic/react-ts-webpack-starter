@@ -5,11 +5,9 @@ export type Post = {
   title: string;
 };
 
-export type PostsResponseData = {
-  data: Post[];
-};
+export type GetPostsResponseData = Post[];
 
 export async function getPosts(client: AxiosInstance) {
-  const posts = await client.get<PostsResponseData>('posts');
+  const posts = await client.get<GetPostsResponseData>('posts');
   return posts.data;
 }
