@@ -1,8 +1,12 @@
 {
-  "name": "react-ts-webpack-starter",
+  "name": "@andrej-kolic/react-ts-webpack-starter",
   "version": "1.0.0",
   "description": "",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrej-kolic/react-ts-webpack-starter.git"
+  },
   "scripts": {
     "prepare": "husky install",
     "build": "webpack --config ./webpack/webpack.prod.js",

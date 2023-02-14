@@ -18,8 +18,6 @@ describe('Content', () => {
     // expect(screen.getByText(/home page/i)).toBeInTheDocument();
     expect(await screen.findByTestId('page-home')).toBeInTheDocument();
 
-    screen.debug();
-
     await user.click(screen.getByText(/about/i));
     // expect(screen.getByText(/about page/i)).toBeInTheDocument();
     expect(await screen.findByTestId('page-about')).toBeInTheDocument();
