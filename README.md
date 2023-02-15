@@ -21,6 +21,7 @@
 
 ## TODO:
 
+- error boundary
 - e2e tests (playwright)
 - asset management
 - file download (figure out prod path)
