@@ -18,6 +18,7 @@
 - integration tests (msw)
 - serve dist
 - github workflows
+- test coverage
 
 ## TODO:
 
@@ -30,3 +31,4 @@
 - react-hook-form
 - new eslint config file
 - eslint rules
+- commit-lint
