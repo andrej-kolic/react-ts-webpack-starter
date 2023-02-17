@@ -21,6 +21,12 @@ const AsyncAboutPage = lazy(() =>
   })),
 );
 
+const AsyncStorybookPage = lazy(() =>
+  import('~/pages/storybook').then((module) => ({
+    default: module.StorybookPage,
+  })),
+);
+
 // TODO: router based on environment
 // eslint-disable-next-line @typescript-eslint/no-inferrable-types
 const routingType: string = 'browser';
@@ -43,6 +49,10 @@ const routes: RouteObject[] = [
           console.log('loading about page 2');
           return { data: 123 };
         },
+      },
+      {
+        path: 'storybook/',
+        element: <AsyncStorybookPage />,
       },
     ],
   },

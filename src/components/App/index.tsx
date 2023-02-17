@@ -2,6 +2,7 @@ import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { Content } from './Content/index';
+import './styles.css';
 
 //
 

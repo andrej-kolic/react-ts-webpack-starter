@@ -23,13 +23,13 @@ export default {
     // fetch: global.fetch,
     Request: Request,
   },
-  collectCoverageFrom: ['**/src/**/*.{ts,tsx}', '!**/src/**/*.esm.ts'],
-  coverageThreshold: {
-    global: {
-      statements: 0,
-      branches: 0,
-      functions: 0,
-      lines: 0,
-    },
-  },
+  // collectCoverageFrom: ['**/src/**/*.{ts,tsx}', '!**/src/**/*.esm.ts'],
+  // coverageThreshold: {
+  //   global: {
+  //     statements: 0,
+  //     branches: 0,
+  //     functions: 0,
+  //     lines: 0,
+  //   },
+  // },
 };

@@ -26,5 +26,8 @@ describe('NavBar', () => {
 
     await user.click(screen.getByText(/about/i));
     expect(window.location.pathname).toBe('/about');
+
+    await user.click(screen.getByText(/storybook/i));
+    expect(window.location.pathname).toBe('/storybook');
   });
 });

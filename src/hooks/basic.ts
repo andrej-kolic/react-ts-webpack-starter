@@ -1,10 +1,11 @@
 import { useEffect, useRef } from 'react';
 
-//
+// factory
 
 function use<T>(this: ReturnType<typeof getPrevValue<T>>, value: T) {
   if (value !== this.prevInput) {
     this.prevValue = this.prevInput;
+    this.prevInput = value;
   }
   return this.prevValue;
 }
@@ -17,12 +18,12 @@ function getPrevValue<T>(initialValue: T) {
   };
 }
 
-export function usePrevious<T>(value: T): T | undefined {
+export function usePrevious_factoryImpl<T>(value: T): T | undefined {
   const ref = useRef<ReturnType<typeof getPrevValue<T>>>(getPrevValue(value));
   return ref.current.use(value);
 }
 
-//
+// class
 
 class Previous<T> {
   _previousInput: T;
@@ -41,14 +42,14 @@ class Previous<T> {
   }
 }
 
-export function usePrevious5<T>(value: T): T | undefined {
+export function usePrevious_classImpl<T>(value: T): T | undefined {
   const ref = useRef<Previous<T>>(new Previous(value));
   return ref.current.use(value);
 }
 
-//
+// single ref
 
-export function usePrevious4<T>(value: T): T | undefined {
+export function usePrevious_MultiRefImpl<T>(value: T): T | undefined {
   const ref = useRef<{ input: T; previous: T | undefined }>({
     input: value,
     previous: undefined,
@@ -61,9 +62,15 @@ export function usePrevious4<T>(value: T): T | undefined {
   return ref.current.previous;
 }
 
-//
+// refs
 
-export function usePrevious3<T>(value: T): T | undefined {
+// TODO: move up and add to other implementations
+interface UsePrevious {
+  <T>(value: T): T | undefined;
+}
+
+// export function usePrevious_RefImpl<T>(value: T): T | undefined {
+export const usePrevious_RefImpl: UsePrevious = <T>(value: T) => {
   const previousInputRef = useRef<T>(value);
   const previousValueRef = useRef<T>();
 
@@ -73,11 +80,13 @@ export function usePrevious3<T>(value: T): T | undefined {
   }
 
   return previousValueRef.current;
-}
+};
 
-//
+export const usePrevious: UsePrevious = usePrevious_RefImpl;
 
-export function usePrevious2<T>(value: T): T | undefined {
+// return value from previous render
+
+export function usePreviousRender<T>(value: T): T | undefined {
   const ref = useRef<T>();
   console.log('** value:', value);
 

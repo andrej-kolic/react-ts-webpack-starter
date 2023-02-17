@@ -5,9 +5,8 @@ import { NavBar } from '~/components/App/NavBar';
 export function Layout() {
   return (
     <div>
-      <h1>React typescript starter app</h1>
       <NavBar />
-      <div id="content">
+      <div data-testid="layout-content">
         <Suspense
           fallback={
             <p>

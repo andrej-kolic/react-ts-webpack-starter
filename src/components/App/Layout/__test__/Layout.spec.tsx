@@ -6,9 +6,7 @@ describe('Layout', () => {
   it('should display layout elements', () => {
     renderWithRouter(<Layout />);
 
-    expect(
-      screen.getByText('React typescript starter app'),
-    ).toBeInTheDocument();
     expect(screen.getByRole('navigation')).toBeInTheDocument();
+    expect(screen.getByTestId('layout-content')).toBeInTheDocument();
   });
 });

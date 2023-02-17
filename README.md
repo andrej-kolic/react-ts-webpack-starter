@@ -19,9 +19,11 @@
 - serve dist
 - github workflows
 - test coverage
+- custom storybook
 
 ## TODO:
 
+- app context
 - error boundary
 - e2e tests (playwright)
 - asset management
@@ -31,4 +33,4 @@
 - react-hook-form
 - new eslint config file
 - eslint rules
-- commit-lint
+- commit-lint + semantic-versioning
