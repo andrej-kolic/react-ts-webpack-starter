@@ -1,0 +1,9 @@
+.Twit__container {
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.Twit__container p {
+  margin-bottom: 0;
+}
