@@ -8,5 +8,5 @@ export enum Status {
 export type State =
   | { status: Status.INPUT }
   | { status: Status.PENDING }
-  | { status: Status.SUCCESS; result?: { message: string } }
-  | { status: Status.ERROR; error: Error };
+  | { status: Status.SUCCESS; result?: { messageId: number } }
+  | { status: Status.ERROR; message: string; error: Error };

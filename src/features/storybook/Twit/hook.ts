@@ -19,14 +19,15 @@ export function useTwit({
     setState({ status: Status.PENDING });
     void (async () => {
       try {
-        const result = await usePostMessage(message);
+        const messageId = await usePostMessage(message);
         setState({
           status: Status.SUCCESS,
-          result: { message: result },
+          result: { messageId },
         });
       } catch (error) {
         setState({
           status: Status.ERROR,
+          message: message,
           error: error as Error,
         });
       }
@@ -38,9 +39,15 @@ export function useTwit({
     setState({ status: Status.INPUT });
   };
 
+  const retry = () => {
+    if (state.status !== Status.ERROR) return;
+    post(state.message);
+  };
+
   return {
     state,
     post,
     reset,
+    retry,
   };
 }

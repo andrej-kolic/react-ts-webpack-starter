@@ -16,6 +16,7 @@ export function TwitContainer() {
       <Twit
         initialState={{
           status: Status.ERROR,
+          message: '',
           error: new Error('Network error!'),
         }}
       />
