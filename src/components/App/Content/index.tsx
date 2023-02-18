@@ -51,7 +51,11 @@ const routes: RouteObject[] = [
         },
       },
       {
-        path: 'storybook/',
+        path: 'storybook',
+        element: <AsyncStorybookPage />,
+      },
+      {
+        path: 'storybook/:tab',
         element: <AsyncStorybookPage />,
       },
     ],

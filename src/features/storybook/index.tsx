@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 
 import { Counter } from './Counter';
 import { PostList } from './PostList';
@@ -20,20 +20,10 @@ type SectionKey = keyof typeof Section;
 const sectionKeys: SectionKey[] = Object.keys(Section) as SectionKey[];
 const sectionValues = Object.values(Section);
 
-const initialSection = Section.TWIT;
-
 //
 
 export function Storybook() {
-  const [section, setSection] = useState<Section>(initialSection);
-
-  const handleClick = (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    section: Section,
-  ) => {
-    event.preventDefault();
-    setSection(section);
-  };
+  const { tab } = useParams();
 
   return (
     <div className="Storybook__container">
@@ -41,9 +31,7 @@ export function Storybook() {
         {sectionValues.map((section, index) => {
           return (
             <span key={section}>
-              <a href="" onClick={(event) => handleClick(event, section)}>
-                {section}
-              </a>
+              <Link to={`../storybook/${section}`}>{section}</Link>
               <span style={{ opacity: 0.5 }}>
                 {index < sectionValues.length - 1 && ' | '}
               </span>
@@ -52,11 +40,12 @@ export function Storybook() {
         })}
       </nav>
 
+      {!tab && <p style={{ textAlign: 'center' }}>Welcome to Storybook</p>}
       <section>
-        {section === Section.COUNTER && <Counter />}
-        {section === Section.POSTS && <PostList />}
-        {section === Section.TWIT && <TwitContainer />}
-        {section === Section.STATE_MACHINE && <div>state</div>}
+        {tab === Section.COUNTER && <Counter />}
+        {tab === Section.POSTS && <PostList />}
+        {tab === Section.TWIT && <TwitContainer />}
+        {tab === Section.STATE_MACHINE && <div>state</div>}
       </section>
     </div>
   );
