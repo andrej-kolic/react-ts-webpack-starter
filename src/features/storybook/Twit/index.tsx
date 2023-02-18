@@ -1,4 +1,4 @@
-import { Status } from './types';
+import { TwitStatus } from './types';
 import { Twit } from './Twit';
 
 //
@@ -9,13 +9,13 @@ export function TwitContainer() {
       <Twit />
 
       <h2>Other states</h2>
-      <Twit initialState={{ status: Status.PENDING }} />
+      <Twit initialState={{ status: TwitStatus.PENDING }} />
       <br />
-      <Twit initialState={{ status: Status.SUCCESS }} />
+      <Twit initialState={{ status: TwitStatus.SUCCESS }} />
       <br />
       <Twit
         initialState={{
-          status: Status.ERROR,
+          status: TwitStatus.ERROR,
           message: '',
           error: new Error('Network error!'),
         }}

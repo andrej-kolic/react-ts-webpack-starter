@@ -2,7 +2,12 @@ import { sleep } from '~/utilities/timer';
 
 let requestCounter = 0;
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+/**
+ * Fake api method for posting a message
+ * @param message message to be posted
+ * @returns message id
+ * @throws Error
+ */
 export async function usePostMessage(message: string) {
   console.log('sending message:', message);
 

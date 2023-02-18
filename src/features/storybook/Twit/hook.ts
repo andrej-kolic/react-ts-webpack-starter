@@ -1,32 +1,34 @@
 import { useState } from 'react';
 
-import { Status } from './types';
-import type { State } from './types';
+import { TwitStatus } from './types';
+import type { TwitState } from './types';
 import { usePostMessage } from './api';
 
 export type IntersectionStateParams = {
-  initialState?: State;
+  initialState?: TwitState;
 };
 
 export function useTwit({
-  initialState = { status: Status.INPUT },
+  initialState = { status: TwitStatus.INPUT },
 }: IntersectionStateParams) {
-  const [state, setState] = useState<State>(initialState);
+  const [state, setState] = useState<TwitState>(initialState);
+  const twitStatus = state.status;
 
   const post = (message: string) => {
-    if (state.status !== Status.INPUT && state.status !== Status.ERROR) return;
+    if (twitStatus !== TwitStatus.INPUT && twitStatus !== TwitStatus.ERROR)
+      return;
 
-    setState({ status: Status.PENDING });
+    setState({ status: TwitStatus.PENDING });
     void (async () => {
       try {
         const messageId = await usePostMessage(message);
         setState({
-          status: Status.SUCCESS,
+          status: TwitStatus.SUCCESS,
           result: { messageId },
         });
       } catch (error) {
         setState({
-          status: Status.ERROR,
+          status: TwitStatus.ERROR,
           message: message,
           error: error as Error,
         });
@@ -35,12 +37,12 @@ export function useTwit({
   };
 
   const reset = () => {
-    if (state.status === Status.PENDING) return;
-    setState({ status: Status.INPUT });
+    if (twitStatus === TwitStatus.PENDING) return;
+    setState({ status: TwitStatus.INPUT });
   };
 
   const retry = () => {
-    if (state.status !== Status.ERROR) return;
+    if (twitStatus !== TwitStatus.ERROR) return;
     post(state.message);
   };
 

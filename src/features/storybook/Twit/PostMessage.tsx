@@ -1,25 +1,34 @@
 import { useState, useRef, useEffect } from 'react';
-import type { State } from './types';
-import { Status } from './types';
+import type { TwitState } from './types';
+import { TwitStatus } from './types';
 
 export type MessageProps = {
-  state: State;
+  isInInputMode: boolean;
   onPost: (message: string) => void;
 };
 
-export function PostMessage({ state, onPost }: MessageProps) {
+/**
+ * Input and post message
+ * @param state current state of
+ * @param param0
+ * @returns
+ */
+
+export function PostMessage({ isInInputMode, onPost }: MessageProps) {
   const [message, setMessage] = useState<string>('');
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const twitStatus = state.status;
-  const postEnabled = twitStatus === Status.INPUT && message.length > 0;
+  // const twitStatus = state.status;
+  // const postEnabled = twitStatus === TwitStatus.INPUT && message.length > 0;
+  const postEnabled = isInInputMode && message.length > 0;
 
   useEffect(() => {
-    console.debug('status:', state.status);
-    if (twitStatus === Status.INPUT) {
+    // console.debug('status:', state.status);
+    // if (twitStatus === TwitStatus.INPUT) {
+    if (isInInputMode) {
       setMessage('');
       inputRef.current && inputRef.current.focus();
     }
-  }, [state]);
+  }, [isInInputMode]);
 
   return (
     <form>
@@ -28,7 +37,7 @@ export function PostMessage({ state, onPost }: MessageProps) {
         type="text"
         ref={inputRef}
         value={message}
-        disabled={twitStatus != Status.INPUT}
+        disabled={!isInInputMode}
         onChange={(e) => setMessage(e.target.value)}
       ></input>
       &nbsp;
