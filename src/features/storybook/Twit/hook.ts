@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
+import type { Reducer } from 'react';
 
-import { TwitStatus } from './types';
+import { reducer, TwitStatus } from './types';
 import type { TwitState } from './types';
 import { usePostMessage } from './api';
 
@@ -11,23 +12,24 @@ export type IntersectionStateParams = {
 export function useTwit({
   initialState = { status: TwitStatus.INPUT },
 }: IntersectionStateParams) {
-  const [state, setState] = useState<TwitState>(initialState);
+  const [state, dispatch] = useReducer<Reducer<TwitState, TwitState>>(
+    reducer,
+    initialState,
+  );
   const twitStatus = state.status;
 
   const post = (message: string) => {
-    if (twitStatus !== TwitStatus.INPUT && twitStatus !== TwitStatus.ERROR)
-      return;
+    dispatch({ status: TwitStatus.PENDING });
 
-    setState({ status: TwitStatus.PENDING });
     void (async () => {
       try {
         const messageId = await usePostMessage(message);
-        setState({
+        dispatch({
           status: TwitStatus.SUCCESS,
           result: { messageId },
         });
       } catch (error) {
-        setState({
+        dispatch({
           status: TwitStatus.ERROR,
           message: message,
           error: error as Error,
@@ -36,11 +38,9 @@ export function useTwit({
     })();
   };
 
-  const reset = () => {
-    if (twitStatus === TwitStatus.PENDING) return;
-    setState({ status: TwitStatus.INPUT });
-  };
+  const reset = () => dispatch({ status: TwitStatus.INPUT });
 
+  // TODO: throw?
   const retry = () => {
     if (twitStatus !== TwitStatus.ERROR) return;
     post(state.message);
