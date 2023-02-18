@@ -14,7 +14,7 @@
     "lint:fix": "pnpm lint --fix --quiet",
     "format": "prettier --config .prettierrc . --write && pnpm lint:fix",
     "test": "pnpm test:type && pnpm test:code:coverage",
-    "test:code": "NODE_ENV=test jest --runInBand",
+    "test:code": "NODE_ENV=test jest",
     "test:code:coverage": "pnpm test:code --coverage",
     "test:type": "tsc --noEmit --pretty",
     "start": "webpack serve --config ./webpack/webpack.dev.js",

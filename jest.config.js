@@ -18,7 +18,9 @@ export default {
   },
   roots: [`${sourceDir}`],
 
-  // jest should with --runInBand to support globals! (https://github.com/facebook/jest/issues/5731)
+  // 'maxWorkers: 1' or CLI option '--runInBand' to support globals! (https://github.com/facebook/jest/issues/5731)
+  maxWorkers: 1,
+
   globals: {
     // fetch: global.fetch,
     Request: Request,
