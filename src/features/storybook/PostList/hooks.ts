@@ -11,7 +11,11 @@ function usePosts() {
     isLoading,
     data: responseBody,
     error,
-  } = useQuery<GetPostsResponseData, Error>('posts', () => getPosts(client));
+  } = useQuery<GetPostsResponseData, Error>('posts', () => {
+    // if there are input parameters and some of them are not available,
+    // return empty array HERE (to respect rules of hooks)
+    return getPosts(client);
+  });
 
   console.log('* data:', responseBody);
   return {

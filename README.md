@@ -24,7 +24,7 @@
 
 ## TODO:
 
-- app context
+- immer + settings provider
 - error boundary
 - e2e tests (playwright)
 - asset management

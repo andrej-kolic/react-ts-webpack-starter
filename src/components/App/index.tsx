@@ -2,6 +2,8 @@ import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { Content } from './Content/index';
+import { SettingsProvider } from '~/hooks/settings';
+
 import './styles.css';
 
 //
@@ -28,9 +30,11 @@ export const App = (props: AppProps) => {
   // TODO: add providers
   return (
     <React.StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <Content />
-      </QueryClientProvider>
+      <SettingsProvider>
+        <QueryClientProvider client={queryClient}>
+          <Content />
+        </QueryClientProvider>
+      </SettingsProvider>
     </React.StrictMode>
   );
 };
