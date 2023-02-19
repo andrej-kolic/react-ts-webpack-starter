@@ -1,8 +1,7 @@
 import { useReducer } from 'react';
-import type { Reducer } from 'react';
 
 import { reducer, TwitStatus } from './types';
-import type { TwitState } from './types';
+import type { TwitState, TwitReducer } from './types';
 import { usePostMessage } from './api';
 
 export type IntersectionStateParams = {
@@ -12,10 +11,7 @@ export type IntersectionStateParams = {
 export function useTwit({
   initialState = { status: TwitStatus.INPUT },
 }: IntersectionStateParams) {
-  const [state, dispatch] = useReducer<Reducer<TwitState, TwitState>>(
-    reducer,
-    initialState,
-  );
+  const [state, dispatch] = useReducer<TwitReducer>(reducer, initialState);
   const twitStatus = state.status;
 
   const post = (message: string) => {
@@ -40,9 +36,8 @@ export function useTwit({
 
   const reset = () => dispatch({ status: TwitStatus.INPUT });
 
-  // TODO: throw?
   const retry = () => {
-    if (twitStatus !== TwitStatus.ERROR) return;
+    if (twitStatus !== TwitStatus.ERROR) return; // TODO: throw?
     post(state.message);
   };
 
