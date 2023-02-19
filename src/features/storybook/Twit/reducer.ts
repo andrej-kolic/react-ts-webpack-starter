@@ -7,7 +7,7 @@ export enum TwitStatus {
   SUCCESS = 'success',
   ERROR = 'error',
 }
-// export type TwitStatus = 'input' | 'pending' | 'success' | 'error';
+// export type TwitStatus2 = 'input' | 'pending' | 'success' | 'error';
 
 export type TwitState =
   | { status: TwitStatus.INPUT }

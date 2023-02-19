@@ -1,4 +1,4 @@
-import { TwitStatus } from './types';
+import { TwitStatus } from './reducer';
 import { Twit } from './Twit';
 
 //

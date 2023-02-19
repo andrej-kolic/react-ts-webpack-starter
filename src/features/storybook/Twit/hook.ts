@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 
-import { reducer, TwitStatus } from './types';
-import type { TwitState, TwitReducer } from './types';
+import { reducer, TwitStatus } from './reducer';
+import type { TwitState, TwitReducer } from './reducer';
 import { usePostMessage } from './api';
 
 export type IntersectionStateParams = {

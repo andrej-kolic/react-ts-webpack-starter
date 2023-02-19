@@ -1,4 +1,4 @@
-import { TwitStatus } from './types';
+import { TwitStatus } from './reducer';
 import { useTwit } from './hook';
 import type { IntersectionStateParams } from './hook';
 import { PostMessage } from './PostMessage';
