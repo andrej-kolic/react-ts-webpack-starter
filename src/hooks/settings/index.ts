@@ -1,7 +1,1 @@
-/**
- * # Settings
- *
- *
- */
-
 export * from './context';

@@ -1,10 +1,4 @@
 /**
- * # Settings (Helpers)
- *
- *
- */
-
-/**
  * List of languages codes which are supported by the platform (frontend) for e.g. translations.
  */
 export const supportedLanguagesCodes: readonly string[] = ['en', 'de'];
@@ -33,9 +27,9 @@ export function ensureSupportedLanguageCode(languageCode?: string) {
 /**
  * List of currencies codes which are supported by the platform (frontend/backend) for e.g. pricing.
  */
-const supportedCurrenciesCodes: readonly string[] = ['EUR', 'USD'];
+export const supportedCurrenciesCodes: readonly string[] = ['EUR', 'USD'];
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- availability ensured
-const fallbackCurrencyCode = supportedCurrenciesCodes[0]!; // 'EUR'
+export const fallbackCurrencyCode = supportedCurrenciesCodes[0]!; // 'EUR'
 
 /**
  * Retrieve a supported currency code based on the provided one.

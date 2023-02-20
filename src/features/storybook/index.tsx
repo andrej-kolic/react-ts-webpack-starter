@@ -12,7 +12,7 @@ enum Section {
   COUNTER = 'counter',
   POSTS = 'posts',
   TWIT = 'twit',
-  STATE_MACHINE = 'state-machine',
+  // STATE_MACHINE = 'state-machine',
 }
 type SectionKey = keyof typeof Section;
 
@@ -45,7 +45,7 @@ export function Storybook() {
         {tab === Section.COUNTER && <Counter />}
         {tab === Section.POSTS && <PostList />}
         {tab === Section.TWIT && <TwitContainer />}
-        {tab === Section.STATE_MACHINE && <div>state</div>}
+        {/* {tab === Section.STATE_MACHINE && <div>state</div>} */}
       </section>
     </div>
   );

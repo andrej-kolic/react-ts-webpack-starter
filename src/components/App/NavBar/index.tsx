@@ -26,6 +26,11 @@ export const NavBar = () => {
         <li>
           <Link to={`404`}>404</Link>
         </li>
+        <li>
+          <Link data-testid="navigate-settings" to={`settings`}>
+            Settings
+          </Link>
+        </li>
       </ul>
     </nav>
   );

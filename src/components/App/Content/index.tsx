@@ -27,6 +27,12 @@ const AsyncStorybookPage = lazy(() =>
   })),
 );
 
+const SettingsPage = lazy(() =>
+  import('~/pages/settings').then((module) => ({
+    default: module.SettingsPage,
+  })),
+);
+
 // TODO: router based on environment
 // eslint-disable-next-line @typescript-eslint/no-inferrable-types
 const routingType: string = 'browser';
@@ -57,6 +63,10 @@ const routes: RouteObject[] = [
       {
         path: 'storybook/:tab',
         element: <AsyncStorybookPage />,
+      },
+      {
+        path: 'settings/',
+        element: <SettingsPage />,
       },
     ],
   },

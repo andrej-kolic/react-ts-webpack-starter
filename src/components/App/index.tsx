@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { Content } from './Content/index';
 import { SettingsProvider } from '~/hooks/settings';
+import type { SettingsProviderProps } from '~/hooks/settings';
 
 import './styles.css';
 
@@ -22,15 +23,15 @@ export const queryClient = new QueryClient({
   },
 });
 
-export type AppProps = {
+export type AppProps = Pick<SettingsProviderProps, 'settings'> & {
   version: string;
 };
 
-export const App = (props: AppProps) => {
+export const App = ({ settings }: AppProps) => {
   // TODO: add providers
   return (
     <React.StrictMode>
-      <SettingsProvider>
+      <SettingsProvider settings={settings}>
         <QueryClientProvider client={queryClient}>
           <Content />
         </QueryClientProvider>

@@ -28,5 +28,9 @@ describe('Content', () => {
     await user.click(screen.getByText(/storybook/i));
     // expect(screen.getByText(/storybook/i)).toBeInTheDocument();
     expect(await screen.findByTestId('page-storybook')).toBeInTheDocument();
+
+    await user.click(screen.getByText(/settings/i));
+    // expect(screen.getByText(/storybook/i)).toBeInTheDocument();
+    expect(await screen.findByTestId('page-settings')).toBeInTheDocument();
   });
 });
