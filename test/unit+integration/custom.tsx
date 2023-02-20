@@ -9,10 +9,7 @@ import { SettingsProvider } from '~/hooks/settings';
 
 //
 
-export function renderWithSettings(
-  ui: ReactElement,
-  options?: RenderOptions,
-): RenderResult {
+export function renderWithSettings(ui: ReactElement, options?: RenderOptions): RenderResult {
   return render(<SettingsProvider>{ui}</SettingsProvider>, options);
 }
 
@@ -53,18 +50,11 @@ export function renderWithRouter(
     window.history.pushState({}, '', route);
   }
 
-  return renderWithNetwork(
-    <BrowserRouter>{ui}</BrowserRouter>,
-    undefined,
-    options,
-  );
+  return renderWithNetwork(<BrowserRouter>{ui}</BrowserRouter>, undefined, options);
 }
 
 //
 
-export function renderInApp(
-  ui: ReactElement,
-  options?: RenderOptions,
-): RenderResult {
+export function renderInApp(ui: ReactElement, options?: RenderOptions): RenderResult {
   return renderWithRouter(ui, undefined, options);
 }

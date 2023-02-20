@@ -77,10 +77,7 @@ const routes: RouteObject[] = [
   // },
 ];
 
-const router =
-  routingType === 'memory'
-    ? createMemoryRouter(routes)
-    : createBrowserRouter(routes);
+const router = routingType === 'memory' ? createMemoryRouter(routes) : createBrowserRouter(routes);
 
 export function Content() {
   return <RouterProvider router={router} />;

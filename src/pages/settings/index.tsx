@@ -1,7 +1,4 @@
-import {
-  supportedLanguagesCodes,
-  supportedCurrenciesCodes,
-} from '~/definitions/settings';
+import { supportedLanguagesCodes, supportedCurrenciesCodes } from '~/definitions/settings';
 import { useSettingsState, useSettingsActions } from '~/hooks/settings';
 
 export const SettingsPage = () => {

@@ -17,15 +17,13 @@ export const transition = <T extends Status, S extends State<T>>(
   nextState: S,
   options: { shouldThrow: boolean } = { shouldThrow: true },
 ) => {
-  const nextStatusAllowed = transitionMap[state.status].find(
-    (s) => s === nextState.status,
-  );
+  const nextStatusAllowed = transitionMap[state.status].find((s) => s === nextState.status);
   console.debug('next status:', nextStatusAllowed);
 
   if (!nextStatusAllowed) {
-    const errorMessage = `invalid transition from '${String(
-      state.status,
-    )}' to ' ${String(nextState.status)}'`;
+    const errorMessage = `invalid transition from '${String(state.status)}' to ' ${String(
+      nextState.status,
+    )}'`;
 
     if (options.shouldThrow) {
       throw new Error(errorMessage);

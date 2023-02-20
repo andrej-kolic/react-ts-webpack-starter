@@ -3,25 +3,18 @@ import type { ImmerReducer } from 'use-immer';
 
 import type { FSAction } from '~/types';
 import type { Settings } from '~/definitions/settings';
-import {
-  getSupportedLanguageCode,
-  getSupportedCurrencyCode,
-} from '~/definitions/settings';
+import { getSupportedLanguageCode, getSupportedCurrencyCode } from '~/definitions/settings';
 
 /**
  * Initial state values with fallback defaults.
  *
  * @param customSettings -
  */
-export function settingsInitializer(
-  customSettings: Partial<Settings>,
-): Settings {
+export function settingsInitializer(customSettings: Partial<Settings>): Settings {
   const defaultBrowserLocale = window.navigator.language; // system
-  const [defaultBrowserLanguageCode, defaultBrowserRegionCode] =
-    defaultBrowserLocale.split('-');
+  const [defaultBrowserLanguageCode, defaultBrowserRegionCode] = defaultBrowserLocale.split('-');
 
-  const languageCode =
-    customSettings.languageCode || defaultBrowserLanguageCode;
+  const languageCode = customSettings.languageCode || defaultBrowserLanguageCode;
   const regionCode = customSettings.regionCode || defaultBrowserRegionCode;
 
   return {
@@ -44,23 +37,14 @@ enum SETTINGS_ACTION_TYPE {
  * Actions structure definitions for settings.
  */
 export type SettingsAction =
-  | FSAction<
-      SETTINGS_ACTION_TYPE.UPDATE_LANGUAGE_CODE,
-      Settings['languageCode']
-    >
+  | FSAction<SETTINGS_ACTION_TYPE.UPDATE_LANGUAGE_CODE, Settings['languageCode']>
   | FSAction<SETTINGS_ACTION_TYPE.UPDATE_REGION_CODE, Settings['regionCode']>
-  | FSAction<
-      SETTINGS_ACTION_TYPE.UPDATE_CURRENCY_CODE,
-      Settings['currencyCode']
-    >;
+  | FSAction<SETTINGS_ACTION_TYPE.UPDATE_CURRENCY_CODE, Settings['currencyCode']>;
 
 /**
  * Draft reducer handling state changes based on actions for settings.
  */
-export const settingsReducer: ImmerReducer<Settings, SettingsAction> = (
-  draft,
-  action,
-) => {
+export const settingsReducer: ImmerReducer<Settings, SettingsAction> = (draft, action) => {
   switch (action.type) {
     case SETTINGS_ACTION_TYPE.UPDATE_LANGUAGE_CODE: {
       draft.languageCode = getSupportedLanguageCode(action.payload);

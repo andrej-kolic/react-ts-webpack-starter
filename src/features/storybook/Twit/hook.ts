@@ -10,30 +10,17 @@ export type TwitParams = {
 
 //
 
-function useTwitTransition({
-  initialState = { status: TwitStatus.INPUT },
-}: TwitParams) {
+function useTwitTransition({ initialState = { status: TwitStatus.INPUT } }: TwitParams) {
   const [state, dispatch] = useReducer<TwitReducer>(reducer, initialState);
 
   return {
     state,
-
     toInput: () => dispatch({ status: TwitStatus.INPUT }),
-
     toPending: () => dispatch({ status: TwitStatus.PENDING }),
-
     toSuccess: (messageId: number) =>
-      dispatch({
-        status: TwitStatus.SUCCESS,
-        result: { messageId },
-      }),
-
+      dispatch({ status: TwitStatus.SUCCESS, result: { messageId } }),
     toError: (message: string, error: Error) =>
-      dispatch({
-        status: TwitStatus.ERROR,
-        message: message,
-        error: error,
-      }),
+      dispatch({ status: TwitStatus.ERROR, message, error: error }),
   };
 }
 
@@ -56,12 +43,10 @@ export function useTwit({ initialState }: TwitParams) {
     })();
   };
 
-  const reset = toInput();
-
   const retry = () => {
-    if (state.status !== TwitStatus.ERROR) return; // TODO: throw?
+    if (state.status !== TwitStatus.ERROR) return;
     post(state.message);
   };
 
-  return { state, post, reset, retry };
+  return { state, post, reset: toInput, retry };
 }

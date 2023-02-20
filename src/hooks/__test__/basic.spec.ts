@@ -30,10 +30,7 @@ describe('usePrevious', () => {
 
   it('should create context per call', () => {
     const { result, rerender } = renderHook((value = 1) => {
-      return [
-        usePrevious(value),
-        usePrevious((value as number) + 100),
-      ] as number[];
+      return [usePrevious(value), usePrevious((value as number) + 100)] as number[];
     });
     expect(result.current).toEqual([undefined, undefined]);
     rerender(2);

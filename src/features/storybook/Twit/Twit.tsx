@@ -18,10 +18,7 @@ export function Twit({ initialState }: IntersectionStateProps) {
 
   return (
     <div className="Twit__container">
-      <PostMessage
-        isInInputMode={twitStatus === TwitStatus.INPUT}
-        onPost={post}
-      />
+      <PostMessage isInInputMode={twitStatus === TwitStatus.INPUT} onPost={post} />
       {twitStatus === TwitStatus.SUCCESS && (
         <p style={{ color: 'green' }}>
           Success. <button onClick={reset}>Send another</button>
@@ -33,12 +30,8 @@ export function Twit({ initialState }: IntersectionStateProps) {
           <button onClick={retry}>Retry</button>
         </p>
       )}
-      {twitStatus === TwitStatus.PENDING && (
-        <p style={{ color: '#666' }}>Sending... </p>
-      )}
-      {twitStatus === TwitStatus.INPUT && (
-        <p style={{ color: '#666' }}>Enter your message</p>
-      )}
+      {twitStatus === TwitStatus.PENDING && <p style={{ color: '#666' }}>Sending... </p>}
+      {twitStatus === TwitStatus.INPUT && <p style={{ color: '#666' }}>Enter your message</p>}
     </div>
   );
 }

@@ -14,10 +14,7 @@ describe('PostList', () => {
   it('should render', () => {
     server.use(
       rest.get(url, (_request, response, context) => {
-        return response.once(
-          context.status(200),
-          context.json<GetPostsResponseData>([]),
-        );
+        return response.once(context.status(200), context.json<GetPostsResponseData>([]));
       }),
     );
 
@@ -28,17 +25,12 @@ describe('PostList', () => {
   it('should render loading state', () => {
     server.use(
       rest.get(url, (_request, response, context) => {
-        return response.once(
-          context.status(200),
-          context.json<GetPostsResponseData>([]),
-        );
+        return response.once(context.status(200), context.json<GetPostsResponseData>([]));
       }),
     );
 
     renderInApp(<PostList />);
-    expect(
-      screen.getByText(/status: loading, isLoading: true/i),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/status: loading, isLoading: true/i)).toBeInTheDocument();
     // screen.debug();
   });
 

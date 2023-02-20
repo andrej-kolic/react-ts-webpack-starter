@@ -1,8 +1,4 @@
-import {
-  getSupportedLanguageCode,
-  getSupportedCurrencyCode,
-  getLocale,
-} from '../helpers';
+import { getSupportedLanguageCode, getSupportedCurrencyCode, getLocale } from '../helpers';
 
 describe('getSupportedLanguageCode', () => {
   it('should return a valid supported language code', () => {

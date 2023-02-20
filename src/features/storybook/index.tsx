@@ -12,7 +12,6 @@ enum Section {
   COUNTER = 'counter',
   POSTS = 'posts',
   TWIT = 'twit',
-  // STATE_MACHINE = 'state-machine',
 }
 type SectionKey = keyof typeof Section;
 
@@ -32,9 +31,7 @@ export function Storybook() {
           return (
             <span key={section}>
               <Link to={`../storybook/${section}`}>{section}</Link>
-              <span style={{ opacity: 0.5 }}>
-                {index < sectionValues.length - 1 && ' | '}
-              </span>
+              <span style={{ opacity: 0.5 }}>{index < sectionValues.length - 1 && ' | '}</span>
             </span>
           );
         })}
@@ -45,7 +42,6 @@ export function Storybook() {
         {tab === Section.COUNTER && <Counter />}
         {tab === Section.POSTS && <PostList />}
         {tab === Section.TWIT && <TwitContainer />}
-        {/* {tab === Section.STATE_MACHINE && <div>state</div>} */}
       </section>
     </div>
   );
