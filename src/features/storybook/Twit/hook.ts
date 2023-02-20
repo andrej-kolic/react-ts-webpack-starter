@@ -4,47 +4,64 @@ import { reducer, TwitStatus } from './reducer';
 import type { TwitState, TwitReducer } from './reducer';
 import { usePostMessage } from './api';
 
-export type IntersectionStateParams = {
+export type TwitParams = {
   initialState?: TwitState;
 };
 
-export function useTwit({
+//
+
+function useTwitTransition({
   initialState = { status: TwitStatus.INPUT },
-}: IntersectionStateParams) {
+}: TwitParams) {
   const [state, dispatch] = useReducer<TwitReducer>(reducer, initialState);
-  const twitStatus = state.status;
+
+  return {
+    state,
+
+    toInput: () => dispatch({ status: TwitStatus.INPUT }),
+
+    toPending: () => dispatch({ status: TwitStatus.PENDING }),
+
+    toSuccess: (messageId: number) =>
+      dispatch({
+        status: TwitStatus.SUCCESS,
+        result: { messageId },
+      }),
+
+    toError: (message: string, error: Error) =>
+      dispatch({
+        status: TwitStatus.ERROR,
+        message: message,
+        error: error,
+      }),
+  };
+}
+
+//
+
+export function useTwit({ initialState }: TwitParams) {
+  const { state, toInput, toPending, toSuccess, toError } = useTwitTransition({
+    initialState,
+  });
 
   const post = (message: string) => {
-    dispatch({ status: TwitStatus.PENDING });
-
+    toPending();
     void (async () => {
       try {
         const messageId = await usePostMessage(message);
-        dispatch({
-          status: TwitStatus.SUCCESS,
-          result: { messageId },
-        });
+        toSuccess(messageId);
       } catch (error) {
-        dispatch({
-          status: TwitStatus.ERROR,
-          message: message,
-          error: error as Error,
-        });
+        toError(message, error as Error);
       }
     })();
   };
 
-  const reset = () => dispatch({ status: TwitStatus.INPUT });
+  const reset = toInput();
 
   const retry = () => {
-    if (twitStatus !== TwitStatus.ERROR) return; // TODO: throw?
+    if (state.status !== TwitStatus.ERROR) return; // TODO: throw?
     post(state.message);
   };
 
-  return {
-    state,
-    post,
-    reset,
-    retry,
-  };
+  return { state, post, reset, retry };
 }

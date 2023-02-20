@@ -1,11 +1,11 @@
 import { TwitStatus } from './reducer';
 import { useTwit } from './hook';
-import type { IntersectionStateParams } from './hook';
+import type { TwitParams } from './hook';
 import { PostMessage } from './PostMessage';
 
 import './styles.css';
 
-export type IntersectionStateProps = IntersectionStateParams;
+export type IntersectionStateProps = TwitParams;
 
 /**
  * Twit component

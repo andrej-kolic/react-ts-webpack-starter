@@ -21,10 +21,10 @@
 - test coverage
 - custom storybook
 - storybook: Twit
+- immer + settings provider
 
 ## TODO:
 
-- immer + settings provider
 - error boundary
 - e2e tests (playwright)
 - asset management
@@ -35,3 +35,4 @@
 - new eslint config file
 - eslint rules
 - commit-lint + semantic-versioning
+- authentication, settings persistence
