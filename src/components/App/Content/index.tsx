@@ -51,8 +51,9 @@ const routes: RouteObject[] = [
         path: 'about/',
         element: <AsyncAboutPage />,
         loader: async () => {
+          // TODO: remove
           await Promise.resolve();
-          console.log('loading about page 2');
+          // console.log('loading about page');
           return { data: 123 };
         },
       },

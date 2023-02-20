@@ -10,7 +10,7 @@ export const fallbackLanguageCode = supportedLanguagesCodes[0]!; // 'en'
  *
  * @param [languageCode] -
  */
-export function ensureSupportedLanguageCode(languageCode?: string) {
+export function getSupportedLanguageCode(languageCode?: string) {
   if (languageCode) {
     if (supportedLanguagesCodes.includes(languageCode)) {
       return languageCode;
@@ -36,7 +36,7 @@ export const fallbackCurrencyCode = supportedCurrenciesCodes[0]!; // 'EUR'
  *
  * @param [currencyCode] -
  */
-export function ensureSupportedCurrencyCode(currencyCode?: string) {
+export function getSupportedCurrencyCode(currencyCode?: string) {
   if (currencyCode) {
     if (supportedCurrenciesCodes.includes(currencyCode)) {
       return currencyCode;

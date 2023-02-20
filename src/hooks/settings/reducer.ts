@@ -4,8 +4,8 @@ import type { ImmerReducer } from 'use-immer';
 import type { FSAction } from '~/types';
 import type { Settings } from '~/definitions/settings';
 import {
-  ensureSupportedLanguageCode,
-  ensureSupportedCurrencyCode,
+  getSupportedLanguageCode,
+  getSupportedCurrencyCode,
 } from '~/definitions/settings';
 
 /**
@@ -25,9 +25,9 @@ export function settingsInitializer(
   const regionCode = customSettings.regionCode || defaultBrowserRegionCode;
 
   return {
-    languageCode: ensureSupportedLanguageCode(languageCode),
+    languageCode: getSupportedLanguageCode(languageCode),
     regionCode,
-    currencyCode: ensureSupportedCurrencyCode(customSettings.currencyCode),
+    currencyCode: getSupportedCurrencyCode(customSettings.currencyCode),
   };
 }
 
@@ -63,7 +63,7 @@ export const settingsReducer: ImmerReducer<Settings, SettingsAction> = (
 ) => {
   switch (action.type) {
     case SETTINGS_ACTION_TYPE.UPDATE_LANGUAGE_CODE: {
-      draft.languageCode = ensureSupportedLanguageCode(action.payload);
+      draft.languageCode = getSupportedLanguageCode(action.payload);
       break;
     }
 
@@ -73,7 +73,7 @@ export const settingsReducer: ImmerReducer<Settings, SettingsAction> = (
     }
 
     case SETTINGS_ACTION_TYPE.UPDATE_CURRENCY_CODE: {
-      draft.currencyCode = ensureSupportedCurrencyCode(action.payload);
+      draft.currencyCode = getSupportedCurrencyCode(action.payload);
       break;
     }
   }

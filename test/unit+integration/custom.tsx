@@ -1,10 +1,20 @@
-import type { ReactElement, ReactNode, PropsWithChildren } from 'react';
+import type { ReactElement } from 'react';
 import { render } from '@testing-library/react';
 import type { RenderOptions, RenderResult } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import { queryClient } from '~/components/App';
+import { SettingsProvider } from '~/hooks/settings';
+
+//
+
+export function renderWithSettings(
+  ui: ReactElement,
+  options?: RenderOptions,
+): RenderResult {
+  return render(<SettingsProvider>{ui}</SettingsProvider>, options);
+}
 
 //
 
@@ -15,8 +25,6 @@ const queryClientConfig: QueryClientConfig = {
 };
 
 /**
- *
- *
  * @param ui      -
  * @param config -
  * @param options -
@@ -28,11 +36,13 @@ export function renderWithNetwork(
 ): RenderResult {
   const client = new QueryClient(config);
 
-  return render(
+  return renderWithSettings(
     <QueryClientProvider client={client}>{ui}</QueryClientProvider>,
     options,
   );
 }
+
+//
 
 export function renderWithRouter(
   ui: ReactElement,
@@ -49,6 +59,8 @@ export function renderWithRouter(
     options,
   );
 }
+
+//
 
 export function renderInApp(
   ui: ReactElement,
