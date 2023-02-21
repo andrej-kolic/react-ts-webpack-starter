@@ -17,6 +17,9 @@ export const transition = <T extends Status, S extends State<T>>(
   nextState: S,
   options: { shouldThrow: boolean } = { shouldThrow: true },
 ) => {
+  // transition executed with same status (in effect or to update state) - return next state?
+  if (state.status === nextState.status) return nextState;
+
   const nextStatusAllowed = transitionMap[state.status].find((s) => s === nextState.status);
   console.debug('next status:', nextStatusAllowed);
 
